@@ -14,72 +14,72 @@
 ActiveRecord::Schema.define(version: 20151022211605) do
 
   create_table "attendances", force: :cascade do |t|
-    t.integer  "sid",        null: false
-    t.float    "attend"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "sid",        limit: 4,  null: false
+    t.float    "attend",     limit: 24
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
   end
 
   create_table "cls", force: :cascade do |t|
-    t.integer  "cid",        null: false
-    t.integer  "std",        null: false
-    t.string   "sec",        null: false
-    t.integer  "tid",        null: false
-    t.string   "room"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "cid",        limit: 4,   null: false
+    t.integer  "std",        limit: 4,   null: false
+    t.string   "sec",        limit: 255, null: false
+    t.integer  "tid",        limit: 4,   null: false
+    t.string   "room",       limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "extracurriculars", force: :cascade do |t|
-    t.integer  "sid",        null: false
-    t.string   "activity"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "sid",        limit: 4,   null: false
+    t.string   "activity",   limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "marks", force: :cascade do |t|
-    t.integer  "sid",        null: false
-    t.integer  "sub_id",     null: false
-    t.integer  "quarter"
-    t.integer  "half"
-    t.integer  "ann"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "sid",        limit: 4, null: false
+    t.integer  "sub_id",     limit: 4, null: false
+    t.integer  "quarter",    limit: 4
+    t.integer  "half",       limit: 4
+    t.integer  "ann",        limit: 4
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
   end
 
   create_table "students", force: :cascade do |t|
-    t.integer  "sid",        null: false
-    t.string   "sname",      null: false
-    t.date     "dob",        null: false
-    t.string   "gender",     null: false
-    t.integer  "cid",        null: false
-    t.string   "fname"
-    t.string   "mname"
-    t.integer  "ph"
-    t.text     "address"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "sid",        limit: 4,     null: false
+    t.string   "sname",      limit: 255,   null: false
+    t.date     "dob",                      null: false
+    t.string   "gender",     limit: 255,   null: false
+    t.integer  "cid",        limit: 4,     null: false
+    t.string   "fname",      limit: 255
+    t.string   "mname",      limit: 255
+    t.integer  "ph",         limit: 4
+    t.text     "address",    limit: 65535
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
 
   create_table "subjects", force: :cascade do |t|
-    t.integer  "sub_id",     null: false
-    t.string   "sub_name",   null: false
-    t.integer  "cid",        null: false
-    t.integer  "tid",        null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "sub_id",     limit: 4,   null: false
+    t.string   "sub_name",   limit: 255, null: false
+    t.integer  "cid",        limit: 4,   null: false
+    t.integer  "tid",        limit: 4,   null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "teachers", force: :cascade do |t|
-    t.integer  "tid",        null: false
-    t.string   "tname"
+    t.integer  "tid",        limit: 4,     null: false
+    t.string   "tname",      limit: 255
     t.date     "doj"
-    t.string   "gender"
-    t.integer  "exp"
-    t.integer  "ph"
-    t.text     "address"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "gender",     limit: 255
+    t.integer  "exp",        limit: 4
+    t.integer  "ph",         limit: 4
+    t.text     "address",    limit: 65535
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
 
 end
