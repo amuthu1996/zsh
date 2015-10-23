@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  sid: 1
+  sub_id: 1
+  quarter: 1
+  half: 1
+  ann: 1
+
+two:
+  sid: 1
+  sub_id: 1
+  quarter: 1
+  half: 1
+  ann: 1

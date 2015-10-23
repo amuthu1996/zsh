@@ -1,0 +1,25 @@
+<%= form_for(@extracurricular) do |f| %>
+  <% if @extracurricular.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@extracurricular.errors.count, "error") %> prohibited this extracurricular from being saved:</h2>
+
+      <ul>
+      <% @extracurricular.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :sid %><br>
+    <%= f.number_field :sid %>
+  </div>
+  <div class="field">
+    <%= f.label :activity %><br>
+    <%= f.text_field :activity %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

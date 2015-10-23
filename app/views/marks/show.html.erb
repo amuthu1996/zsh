@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Sid:</strong>
+  <%= @mark.sid %>
+</p>
+
+<p>
+  <strong>Sub:</strong>
+  <%= @mark.sub_id %>
+</p>
+
+<p>
+  <strong>Quarter:</strong>
+  <%= @mark.quarter %>
+</p>
+
+<p>
+  <strong>Half:</strong>
+  <%= @mark.half %>
+</p>
+
+<p>
+  <strong>Ann:</strong>
+  <%= @mark.ann %>
+</p>
+
+<%= link_to 'Edit', edit_mark_path(@mark) %> |
+<%= link_to 'Back', marks_path %>

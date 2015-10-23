@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Cls</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Cid</th>
+      <th>Std</th>
+      <th>Sec</th>
+      <th>Tid</th>
+      <th>Room</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cls.each do |cl| %>
+      <tr>
+        <td><%= cl.cid %></td>
+        <td><%= cl.std %></td>
+        <td><%= cl.sec %></td>
+        <td><%= cl.tid %></td>
+        <td><%= cl.room %></td>
+        <td><%= link_to 'Show', cl %></td>
+        <td><%= link_to 'Edit', edit_cl_path(cl) %></td>
+        <td><%= link_to 'Destroy', cl, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Cl', new_cl_path %>
