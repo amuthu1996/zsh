@@ -1,4 +1,16 @@
 Rails.application.routes.draw do
+  get 'report/index'
+
+  get 'report/student'
+
+  get 'report/management'
+
+  get 'exam/index'
+
+  get 'exam/seating'
+
+  get 'exam/eligibility'
+
   get 'welcome/index'
 
   resources :extracurriculars

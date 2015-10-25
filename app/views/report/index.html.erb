@@ -1,0 +1,22 @@
+<h1>Report#index</h1>
+<p>Find me in app/views/report/index.html.erb</p>
+<%
+@connection = ActiveRecord::Base.connection
+result = @connection.exec_query('select students.sid,sname,attend from students join attendances')
+result.each do |row|
+%>
+
+<%= row["sid"]%>
+<%= row["sname"]%>
+<%= row["attend"]%>
+
+
+<% end %>
+
+<% t = Student.joins(:attendances) %>
+
+<% t.each do |student| %>
+      <%= student.sid%>
+      <%= student.sname%>
+      <%= student.attend%><br>
+<% end %>
