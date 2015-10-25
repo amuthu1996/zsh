@@ -9,6 +9,9 @@
       <th>Tname</th>
       <th>Doj</th>
       <th>Gender</th>
+      <th>Experience</th>
+      <th>Contact</th>
+      <th>Address</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -20,6 +23,9 @@
         <td><%= teacher.tname %></td>
         <td><%= teacher.doj %></td>
         <td><%= teacher.gender %></td>
+        <td><%= teacher.exp %></td>
+        <td><%= teacher.ph %></td>
+        <td><%= teacher.address %></td>
         <td><%= link_to 'Show', teacher %></td>
         <td><%= link_to 'Edit', edit_teacher_path(teacher) %></td>
         <td><%= link_to 'Destroy', teacher, method: :delete, data: { confirm: 'Are you sure?' } %></td>

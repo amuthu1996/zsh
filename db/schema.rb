@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151024221537) do
+ActiveRecord::Schema.define(version: 20151025072249) do
 
   create_table "attendances", primary_key: "sid", force: :cascade do |t|
     t.float    "attend",     limit: 24
@@ -21,6 +21,13 @@ ActiveRecord::Schema.define(version: 20151024221537) do
   end
 
   add_index "attendances", ["sid"], name: "index_attendances_on_sid", using: :btree
+
+  create_table "attendances_students", id: false, force: :cascade do |t|
+    t.integer "student_id",    limit: 4, null: false
+    t.integer "attendance_id", limit: 4, null: false
+  end
+
+  add_index "attendances_students", ["student_id", "attendance_id"], name: "index_attendances_students_on_student_id_and_attendance_id", using: :btree
 
   create_table "cls", primary_key: "cid", force: :cascade do |t|
     t.integer  "std",        limit: 4,   null: false
@@ -43,6 +50,8 @@ ActiveRecord::Schema.define(version: 20151024221537) do
     t.datetime "updated_at",                          null: false
   end
 
+  add_index "extracurriculars", ["sid"], name: "extracurriculars_ibfk_1", using: :btree
+
   create_table "marks", id: false, force: :cascade do |t|
     t.integer  "sid",        limit: 4, null: false
     t.integer  "sub_id",     limit: 4, null: false
@@ -55,6 +64,7 @@ ActiveRecord::Schema.define(version: 20151024221537) do
     t.datetime "updated_at",           null: false
   end
 
+  add_index "marks", ["sid"], name: "marks_ibfk_1", using: :btree
   add_index "marks", ["sub_id"], name: "sub_id", using: :btree
 
   create_table "students", primary_key: "sid", force: :cascade do |t|
@@ -78,7 +88,7 @@ ActiveRecord::Schema.define(version: 20151024221537) do
     t.string   "sub_name",   limit: 255, null: false
     t.integer  "cid",        limit: 4,   null: false
     t.integer  "tid",        limit: 4,   null: false
-    t.integer  "cls_id",     limit: 4
+    t.integer  "cl_id",      limit: 4
     t.integer  "teacher_id", limit: 4
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false

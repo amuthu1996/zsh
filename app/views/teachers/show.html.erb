@@ -20,5 +20,20 @@
   <%= @teacher.gender %>
 </p>
 
+<p>
+  <strong>Experience:</strong>
+  <%= @teacher.exp %>
+</p>
+
+<p>
+  <strong>Contact:</strong>
+  <%= @teacher.ph %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @teacher.address %>
+</p>
+
 <%= link_to 'Edit', edit_teacher_path(@teacher) %> |
 <%= link_to 'Back', teachers_path %>
