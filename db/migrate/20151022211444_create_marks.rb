@@ -6,6 +6,8 @@ class CreateMarks < ActiveRecord::Migration
       t.integer :quarter
       t.integer :half
       t.integer :ann
+      t.belongs_to :student
+      t.belongs_to :subject
 
       t.timestamps null: false
 

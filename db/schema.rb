@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(version: 20151024221537) do
 
   create_table "attendances", primary_key: "sid", force: :cascade do |t|
     t.float    "attend",     limit: 24
+    t.integer  "student_id", limit: 4
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false
   end
@@ -26,6 +27,7 @@ ActiveRecord::Schema.define(version: 20151024221537) do
     t.string   "sec",        limit: 255, null: false
     t.integer  "tid",        limit: 4,   null: false
     t.string   "room",       limit: 255
+    t.integer  "teacher_id", limit: 4
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
@@ -36,6 +38,7 @@ ActiveRecord::Schema.define(version: 20151024221537) do
   create_table "extracurriculars", id: false, force: :cascade do |t|
     t.integer  "sid",        limit: 4,                null: false
     t.string   "activity",   limit: 255, default: "", null: false
+    t.integer  "student_id", limit: 4
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
   end
@@ -46,6 +49,8 @@ ActiveRecord::Schema.define(version: 20151024221537) do
     t.integer  "quarter",    limit: 4
     t.integer  "half",       limit: 4
     t.integer  "ann",        limit: 4
+    t.integer  "student_id", limit: 4
+    t.integer  "subject_id", limit: 4
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
   end
@@ -61,6 +66,7 @@ ActiveRecord::Schema.define(version: 20151024221537) do
     t.string   "mname",      limit: 255
     t.integer  "ph",         limit: 4
     t.text     "address",    limit: 65535
+    t.integer  "cls_id",     limit: 4
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
   end
@@ -72,6 +78,8 @@ ActiveRecord::Schema.define(version: 20151024221537) do
     t.string   "sub_name",   limit: 255, null: false
     t.integer  "cid",        limit: 4,   null: false
     t.integer  "tid",        limit: 4,   null: false
+    t.integer  "cls_id",     limit: 4
+    t.integer  "teacher_id", limit: 4
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
@@ -95,7 +103,6 @@ ActiveRecord::Schema.define(version: 20151024221537) do
 
   add_foreign_key "attendances", "students", column: "sid", primary_key: "sid", name: "attendances_ibfk_1"
   add_foreign_key "cls", "teachers", column: "tid", primary_key: "tid", name: "cls_ibfk_1"
-  add_foreign_key "cls", "teachers", column: "tid", primary_key: "tid", name: "cls_ibfk_2"
   add_foreign_key "extracurriculars", "students", column: "sid", primary_key: "sid", name: "extracurriculars_ibfk_1"
   add_foreign_key "marks", "students", column: "sid", primary_key: "sid", name: "marks_ibfk_1"
   add_foreign_key "marks", "subjects", column: "sub_id", primary_key: "sub_id", name: "marks_ibfk_2"

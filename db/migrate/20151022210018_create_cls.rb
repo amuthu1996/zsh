@@ -6,6 +6,7 @@ class CreateCls < ActiveRecord::Migration
       t.string :sec, :null => false
       t.integer :tid, :null => false, :references => [:teachers, :tid]
       t.string :room
+      t.belongs_to :teacher
 
       t.timestamps null: false
       

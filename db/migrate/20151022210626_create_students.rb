@@ -10,6 +10,7 @@ class CreateStudents < ActiveRecord::Migration
       t.string :mname
       t.integer :ph
       t.text :address
+      t.belongs_to :cls
 
       t.timestamps null: false
 

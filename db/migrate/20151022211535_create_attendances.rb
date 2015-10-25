@@ -3,6 +3,7 @@ class CreateAttendances < ActiveRecord::Migration
     create_table :attendances, id: false do |t|
       t.integer :sid, index: true
       t.float :attend
+      t.belongs_to :student
 
       t.timestamps null: false
 

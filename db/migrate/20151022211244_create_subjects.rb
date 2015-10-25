@@ -5,6 +5,8 @@ class CreateSubjects < ActiveRecord::Migration
       t.string :sub_name, :null => false
       t.integer :cid, :null => false, :references => [:cls, :cid]
       t.integer :tid, :null => false, :references => [:teachers, :tid]
+      t.belongs_to :cl
+      t.belongs_to :teacher
 
       t.timestamps null: false
 
