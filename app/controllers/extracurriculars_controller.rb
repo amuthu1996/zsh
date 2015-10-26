@@ -69,6 +69,6 @@ class ExtracurricularsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def extracurricular_params
-      params.require(:extracurricular).permit(:sid, :activity)
+      params.require(:extracurricular).permit(:id, :student_id, :activity)
     end
 end

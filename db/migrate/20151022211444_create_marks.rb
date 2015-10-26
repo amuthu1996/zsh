@@ -1,8 +1,8 @@
 class CreateMarks < ActiveRecord::Migration
   def change
     create_table :marks do |t|
-      t.integer :sid, :null => false, :references => [:students, :sid]
-      t.integer :sub_id, :null => false, :references => [:subjects, :sub_id]
+      t.integer :student_id, :null => false, :references => [:students, :id]
+      t.integer :subject_id, :null => false, :references => [:subjects, :id]
       t.integer :quarter
       t.integer :half
       t.integer :ann

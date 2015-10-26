@@ -5,11 +5,11 @@
 <table>
   <thead>
     <tr>
-      <th>Sid</th>
+      <th>id</th>
       <th>Sname</th>
       <th>Dob</th>
       <th>Gender</th>
-      <th>Cid</th>
+      <th>Cl_id</th>
       <th>Fname</th>
       <th>Mname</th>
       <th>Ph</th>
@@ -22,11 +22,11 @@
   <tbody>
     <% @students.each do |student| %>
       <tr>
-        <td><%= student.sid %></td>
+        <td><%= student.id %></td>
         <td><%= student.sname %></td>
         <td><%= student.dob %></td>
         <td><%= student.gender %></td>
-        <td><%= student.cid %></td>
+        <td><%= student.cl_id %></td>
         <td><%= student.fname %></td>
         <td><%= student.mname %></td>
         <td><%= student.ph %></td>

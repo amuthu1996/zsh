@@ -69,6 +69,6 @@ class MarksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def mark_params
-      params.require(:mark).permit(:id,:sid, :sub_id, :quarter, :half, :ann)
+      params.require(:mark).permit(:id,:student_id, :subject_id, :quarter, :half, :ann)
     end
 end

@@ -69,6 +69,6 @@ class ClsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def cl_params
-      params.require(:cl).permit(:cid, :std, :sec, :tid, :room)
+      params.require(:cl).permit(:id, :std, :sec, :teacher_id, :room)
     end
 end

@@ -8,7 +8,7 @@
       <th>Cid</th>
       <th>Std</th>
       <th>Sec</th>
-      <th>Tid</th>
+      <th>teacher_id</th>
       <th>Room</th>
       <th colspan="3"></th>
     </tr>
@@ -17,10 +17,10 @@
   <tbody>
     <% @cls.each do |cl| %>
       <tr>
-        <td><%= cl.cid %></td>
+        <td><%= cl.id %></td>
         <td><%= cl.std %></td>
         <td><%= cl.sec %></td>
-        <td><%= cl.tid %></td>
+        <td><%= cl.teacher_id %></td>
         <td><%= cl.room %></td>
         <td><%= link_to 'Show', cl %></td>
         <td><%= link_to 'Edit', edit_cl_path(cl) %></td>

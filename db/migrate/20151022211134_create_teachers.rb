@@ -1,7 +1,7 @@
 class CreateTeachers < ActiveRecord::Migration
   def change
-    create_table :teachers, id: false do |t|
-      t.integer :tid, :null => false, :uniqueness => true, index: true
+    create_table :teachers do |t|
+      
       t.string :tname
       t.date :doj
       t.string :gender
@@ -12,6 +12,6 @@ class CreateTeachers < ActiveRecord::Migration
       t.timestamps null: false
 
     end
-    execute "ALTER TABLE teachers ADD PRIMARY KEY (tid);"
+    
   end
 end

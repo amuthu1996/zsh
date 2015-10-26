@@ -2,14 +2,14 @@ class AddPart < ActiveRecord::Migration
   def change
     reversible do |dir|
       dir.up do
-      	execute "ALTER TABLE cls ADD CONSTRAINT clsfr FOREIGN KEY (tid) REFERENCES teachers(tid);"
-      	execute "ALTER TABLE students ADD CONSTRAINT stdfr FOREIGN KEY (cid) REFERENCES cls(cid);"
-      	execute "ALTER TABLE subjects ADD CONSTRAINT subfr FOREIGN KEY (tid) REFERENCES teachers(tid);"
-      	execute "ALTER TABLE subjects ADD CONSTRAINT subfr2 FOREIGN KEY (cid) REFERENCES cls(cid);"
-      	execute "ALTER TABLE marks ADD CONSTRAINT mkfr FOREIGN KEY (sid) REFERENCES students(sid);"
-      	execute "ALTER TABLE marks ADD CONSTRAINT mkfr2 FOREIGN KEY (sub_id) REFERENCES subjects(sub_id);"
-      	execute "ALTER TABLE attendances ADD CONSTRAINT attfr FOREIGN KEY (sid) REFERENCES students(sid);"
-      	execute "ALTER TABLE extracurriculars ADD CONSTRAINT exfr FOREIGN KEY (sid) REFERENCES students(sid);"
+      	execute "ALTER TABLE cls ADD CONSTRAINT clsfr FOREIGN KEY (teacher_id) REFERENCES teachers(id);"
+      	execute "ALTER TABLE students ADD CONSTRAINT stdfr FOREIGN KEY (cl_id) REFERENCES cls(id);"
+      	execute "ALTER TABLE subjects ADD CONSTRAINT subfr FOREIGN KEY (teacher_id) REFERENCES teachers(id);"
+      	execute "ALTER TABLE subjects ADD CONSTRAINT subfr2 FOREIGN KEY (cl_id) REFERENCES cls(id);"
+      	execute "ALTER TABLE marks ADD CONSTRAINT mkfr FOREIGN KEY (student_id) REFERENCES students(id);"
+      	execute "ALTER TABLE marks ADD CONSTRAINT mkfr2 FOREIGN KEY (subject_id) REFERENCES subjects(id);"
+      	execute "ALTER TABLE attendances ADD CONSTRAINT attfr FOREIGN KEY (student_id) REFERENCES students(id);"
+      	execute "ALTER TABLE extracurriculars ADD CONSTRAINT exfr FOREIGN KEY (student_id) REFERENCES students(id);"
       end
       dir.down do
         execute "ALTER TABLE cls DROP CONSTRAINT clsfr;"

@@ -5,8 +5,8 @@
 <table>
   <thead>
     <tr>
-      <th>Sid</th>
-      <th>Sub</th>
+      <th>Student_id</th>
+      <th>Subject_id</th>
       <th>Quarter</th>
       <th>Half</th>
       <th>Ann</th>
@@ -17,8 +17,8 @@
   <tbody>
     <% @marks.each do |mark| %>
       <tr>
-        <td><%= mark.sid %></td>
-        <td><%= mark.sub_id %></td>
+        <td><%= mark.student_id %></td>
+        <td><%= mark.subject_id %></td>
         <td><%= mark.quarter %></td>
         <td><%= mark.half %></td>
         <td><%= mark.ann %></td>

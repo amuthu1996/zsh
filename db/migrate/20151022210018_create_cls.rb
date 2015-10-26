@@ -1,16 +1,16 @@
 class CreateCls < ActiveRecord::Migration
   def change
-    create_table :cls, id: false do |t|
-      t.integer :cid, :null => false, :uniqueness => true, index: true
+    create_table :cls do |t|
+      
       t.integer :std, :null => false
       t.string :sec, :null => false
-      t.integer :tid, :null => false, :references => [:teachers, :tid]
+      t.integer :teacher_id, :null => false, :references => [:teachers, :id]
       t.string :room
       t.belongs_to :teacher
 
       t.timestamps null: false
       
     end
-    execute "ALTER TABLE cls ADD PRIMARY KEY (cid);"
+    
   end
 end
