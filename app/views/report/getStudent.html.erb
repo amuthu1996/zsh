@@ -1,42 +1,113 @@
-<h1>Report#student</h1>
-<p>Find me in app/views/report/student.html.erb</p>
+<h2>Student Details</h2>
 
+<p>
+  <strong>id:</strong>
+  <%= @student.id %>
+</p>
 
+<p>
+  <strong>Sname:</strong>
+  <%= @student.sname %>
+</p>
+
+<p>
+  <strong>Dob:</strong>
+  <%= @student.dob %>
+</p>
+
+<p>
+  <strong>Gender:</strong>
+  <%= @student.gender %>
+</p>
+
+<p>
+  <strong>Cl_id:</strong>
+  <%= @student.cl_id %>
+</p>
+
+<p>
+  <strong>Fname:</strong>
+  <%= @student.fname %>
+</p>
+
+<p>
+  <strong>Mname:</strong>
+  <%= @student.mname %>
+</p>
+
+<p>
+  <strong>Ph:</strong>
+  <%= @student.ph %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @student.address %>
+</p>
+
+<%= link_to 'Edit', edit_student_path(@student) %> |
+<%= link_to 'Back', students_path %>
+
+<h2>attendance</h2>
 <%
+t = @student.id
 @connection = ActiveRecord::Base.connection
-result = @connection.exec_query('select * from students join attendances on attendances.sid = students.sid')
+result = @connection.exec_query("select * from students join attendances on attendances.student_id = students.id where students.id = #{t}")
 result.each do |row|
 %>
 
-<%= row["sid"]%>
-<%= row["sname"]%>
+Attendance :  
 <%= row["attend"]%><br>
 
 
 <% end %>
 
-<% result = @connection.exec_query('select students.sid,sname,sub_name,quarter,half,ann from students inner join marks on marks.sid = students.sid inner join subjects on marks.sub_id = subjects.sub_id ')
+<h2>marksheet</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Subject Name</th>
+      <th>Quarterly</th>
+      <th>Half Yearly</th>
+      <th>Annual</th>
+      
+      
+      
+    </tr>
+  </thead>
+
+  <tbody>
+
+<% result = @connection.exec_query("select students.id,sname,sub_name,quarter,half,ann from students inner join marks on marks.student_id = students.id inner join subjects on marks.subject_id = subjects.id where students.id = #{t}")
 result.each do |row| %>
 
-<%= row["sid"]%>
-<%= row["sname"]%>
-<%= row["sub_name"]%>
-<%= row["quarter"]%>
-<%= row["half"]%>
-<%= row["ann"]%>
-<br>
+<tr>
+<td><%= row["sub_name"]%></td>
+<td><%= row["quarter"]%></td>
+<td><%= row["half"]%></td>
+<td><%= row["ann"]%></td>
+</tr>
 
 
 <% end %>
 
+
+</tbody>
+</table>
+<h2>extracurriculars</h2>
+
 <%
-result = @connection.exec_query('select * from students join extracurriculars on extracurriculars.sid = students.sid')
+result = @connection.exec_query("select * from students join extracurriculars on extracurriculars.student_id = students.id where students.id = #{t}")
 result.each do |row|
 %>
 
-<%= row["sid"]%>
-<%= row["sname"]%>
+
 <%= row["activity"]%><br>
 
 
 <% end %>
+
+
+
+

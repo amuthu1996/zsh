@@ -15,8 +15,8 @@ class ReportController < ApplicationController
   def getStudent
   	sid = params[:sid]
   	print sid
-  	@connection = ActiveRecord::Base.connection
-  	@result = @connection.exec_query('select * from students join attendances on attendances.sid = students.sid where students.sid = sid')
+  	
   	@student = Student.find(sid)
+    @std = Student.joins(:marks)
   end
 end

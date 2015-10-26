@@ -1,31 +1,71 @@
 <h1>Report#management</h1>
 <p>Find me in app/views/report/management.html.erb</p>
 
+
+<table>
+  <thead>
+    <tr>
+      <th>Student ID</th>
+      <th>Name</th>
+      <th>Attendence</th>
+      
+      
+      
+      
+    </tr>
+  </thead>
+
+  <tbody>
 <%
 @connection = ActiveRecord::Base.connection
-result = @connection.exec_query('select * from students join attendances on attendances.sid = students.sid where attend = 100')
+result = @connection.exec_query("select * from students join attendances on attendances.student_id = students.id where attend = 100")
 result.each do |row|
 %>
-
-<%= row["sid"]%>
-<%= row["sname"]%>
-<%= row["attend"]%><br>
-
+<tr>
+<td><%= row["sid"]%></td>
+<td><%= row["sname"]%></td>
+<td><%= row["attend"]%></td>
+</tr>
 
 <% end %>
 
+</tbody>
+</table>
 
-<% result = @connection.exec_query('select students.sid,sname,sub_name,quarter,half,ann from students inner join marks on marks.sid = students.sid inner join subjects on marks.sub_id = subjects.sub_id ')
+
+<table>
+  <thead>
+    <tr>
+      <th>Student ID</th>
+      <th>Student Name</th>
+      <th>Subject Name</th>
+      <th>Quarterly</th>
+      <th>Half Yearly</th>
+      <th>Annual</th>
+      
+      
+      
+    </tr>
+  </thead>
+
+  <tbody>
+
+
+<% result = @connection.exec_query("select students.id,sname,sub_name,quarter,half,ann from students inner join marks on marks.student_id = students.id inner join subjects on marks.subject_id = subjects.id where quarter>95 and half>95 and ann>95")
 result.each do |row| %>
-
-<%= row["sid"]%>
-<%= row["sname"]%>
-<%= row["sub_name"]%>
-<%= row["quarter"]%>
-<%= row["half"]%>
-<%= row["ann"]%>
-<br>
+<tr>
+<td><%= row["id"]%></td>
+<td><%= row["sname"]%></td>
+<td><%= row["sub_name"]%></td>
+<td><%= row["quarter"]%></td>
+<td><%= row["half"]%></td>
+<td><%= row["ann"]%></td>
+</tr>
 
 
 <% end %>
+
+</thead>
+
+  <tbody>
 

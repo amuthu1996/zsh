@@ -1,2 +1,14 @@
 <h1>Exam#eligibility</h1>
 <p>Find me in app/views/exam/eligibility.html.erb</p>
+<%
+@connection = ActiveRecord::Base.connection
+result = @connection.exec_query("select * from students join attendances on attendances.student_id = students.id where attend <75")
+result.each do |row|
+%>
+
+<%= row["sid"]%>
+<%= row["sname"]%>
+<%= row["attend"]%><br>
+
+
+<% end %>
