@@ -1,2 +1,31 @@
 <h1>Report#management</h1>
 <p>Find me in app/views/report/management.html.erb</p>
+
+<%
+@connection = ActiveRecord::Base.connection
+result = @connection.exec_query('select * from students join attendances on attendances.sid = students.sid where attend = 100')
+result.each do |row|
+%>
+
+<%= row["sid"]%>
+<%= row["sname"]%>
+<%= row["attend"]%><br>
+
+
+<% end %>
+
+
+<% result = @connection.exec_query('select students.sid,sname,sub_name,quarter,half,ann from students inner join marks on marks.sid = students.sid inner join subjects on marks.sub_id = subjects.sub_id ')
+result.each do |row| %>
+
+<%= row["sid"]%>
+<%= row["sname"]%>
+<%= row["sub_name"]%>
+<%= row["quarter"]%>
+<%= row["half"]%>
+<%= row["ann"]%>
+<br>
+
+
+<% end %>
+

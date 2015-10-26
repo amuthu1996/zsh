@@ -16,15 +16,15 @@ default: &default
 
 development:
   <<: *default
-  database: db_development_max
+  database: db_development_prag
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: db_test_max
+  database: db_test_prag
 
 production:
   <<: *default
-  database: db_production_max
+  database: db_production_prag

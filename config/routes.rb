@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  devise_for :users, ActiveAdmin::Devise.config
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
   get 'report/index'
 
   get 'report/student'
@@ -12,6 +15,8 @@ Rails.application.routes.draw do
   get 'exam/eligibility'
 
   get 'welcome/index'
+
+  post 'report/getStudent' => "report#getStudent"
 
   resources :extracurriculars
   resources :attendances

@@ -2,18 +2,22 @@
 <p>Find me in app/views/report/index.html.erb</p>
 <%
 @connection = ActiveRecord::Base.connection
-result = @connection.exec_query('select students.sid,sname,attend from students join attendances')
+result = @connection.exec_query('select * from students join attendances on attendances.sid = students.sid')
 result.each do |row|
 %>
 
 <%= row["sid"]%>
 <%= row["sname"]%>
-<%= row["attend"]%>
+<%= row["attend"]%><br>
 
 
 <% end %>
 
 
 
+<%=form_tag action:"getStudent" do %>
+<input type="text" name="sid" placeholder="student id"/><br>
+<%= submit_tag "submit" %>
+<% end %>
 
 
